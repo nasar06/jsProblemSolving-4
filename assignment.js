@@ -105,4 +105,55 @@ let friends1 = { name: 'abul', friend: 'kabul' }
 let friends2 = { name: 'kabul', friend: 'sabul' }
 
 let myBestFriend = isBestFriend(friends1, friends2);
-console.log(myBestFriend);
+//console.log(myBestFriend);
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//--------------------------------
+//Problem:1  radianToDegree 
+//-----------------------
+
+
+function radianToDegree(radian) {
+
+    if(typeof(radian) == 'number'){
+        let degree = radian * 180 / Math.PI;
+        return degree.toFixed(2);
+    }
+    else {
+        return 'plese valid Number';
+    }
+}
+
+var degreeResult = radianToDegree(1);
+// console.log(degreeResult);
+
+
+
+
+
+//--------------------------------
+//Problem:2  isJavaScriptFile
+//-----------------------
+
+function isJavaScriptFile(file) {
+
+    let lastThreeString = file.substring(file.length - 3);
+    if (lastThreeString === '.js' && typeof(file) == 'string') {
+        return true;
+    }
+    else if(typeof(file) !== 'string'){
+        console.log('valid data')
+    }
+    else {
+        return false;
+    }
+
+}
+
+let typeOutput = isJavaScriptFile(false)
+console.log(typeOutput);
+
+
