@@ -5,130 +5,18 @@
 
 
 function radianToDegree(radian) {
-    let degree = radian * 57.2958;
-    return degree.toFixed(2);
-}
 
-var degreeResult = radianToDegree(25);
-// console.log(degreeResult);
-
-
-
-
-
-//--------------------------------
-//Problem:2  isJavaScriptFile
-//-----------------------
-
-function isJavaScriptFile(string) {
-    let lastThreeString = string.substring(string.length - 3);
-    if (lastThreeString === '.js') {
-        return true;
-    }
-    else {
-        return false;
-    }
-
-}
-
-let typeOutput = isJavaScriptFile('adda.js')
-// console.log(typeOutput);
-
-
-
-
-
-//--------------------------------
-//Problem 3: oilPrice
-//-----------------------
-
-function oilPrice(diesel, Petrol, octane) {
-    let dieselRate = 114;
-    let petrolRate = 130;
-    let octaneRate = 135;
-
-    let dieselPrice = diesel * dieselRate;
-    let petrolPrice = Petrol * petrolRate;
-    let octanePrice = octane * octaneRate;
-
-    let totalOilPrice = dieselPrice + petrolPrice + octanePrice;
-    return totalOilPrice;
-}
-
-let oilResult = oilPrice(1, 0, 2);
-// console.log(oilResult);
-
-
-
-
-//--------------------------------
-//Problem 4: publicBusFare
-//-----------------------
-
-function publicBusFare(passenger) {
-    let bus = 50;
-    let micro = 11
-
-    let afterBus = passenger % bus;
-    let afterMicro = afterBus % micro;
-
-    let localBusCost = afterMicro * 250;
-    return localBusCost;
-
-}
-
-let totalCost = publicBusFare(365);
-// console.log(totalCost);
-
-
-
-//--------------------------------
-//Problem 5: isBestFriend
-//-----------------------
-
-
-function isBestFriend(friends1, friends2) {
-    if (friends1.name === friends2.friend) {
-        return true;
-    }
-    else {
-        return false;
-    }
-
-}
-
-
-// let friends1 = { name: 'abul', friend: 'babul' }
-// let friends2 = { name: 'babul', friend: 'abul' }
-
-let friends1 = { name: 'abul', friend: 'kabul' }
-let friends2 = { name: 'kabul', friend: 'sabul' }
-
-let myBestFriend = isBestFriend(friends1, friends2);
-//console.log(myBestFriend);
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//--------------------------------
-//Problem:1  radianToDegree 
-//-----------------------
-
-
-function radianToDegree(radian) {
-
-    if(typeof(radian) == 'number'){
-        let degree = radian * 180 / Math.PI;
+    if(typeof(radian) == 'number' && radian >= 0){
+        const degree = radian * (180 / Math.PI);
         return degree.toFixed(2);
     }
     else {
-        return 'plese valid Number';
+        return 'plese valid radian Number';
     }
 }
 
-var degreeResult = radianToDegree(1);
-// console.log(degreeResult);
+// const degreeResult = radianToDegree(1);
+
 
 
 
@@ -140,20 +28,115 @@ var degreeResult = radianToDegree(1);
 
 function isJavaScriptFile(file) {
 
-    let lastThreeString = file.substring(file.length - 3);
-    if (lastThreeString === '.js' && typeof(file) == 'string') {
+    if(typeof(file) == 'string'){
+        const lastThreeString = file.substring(file.length - 3);
+        if (lastThreeString === '.js') {
         return true;
+        }
+        else {
+            return false;
+        }
     }
-    else if(typeof(file) !== 'string'){
-        console.log('valid data')
-    }
-    else {
-        return false;
+    else{
+        return 'plase valid file name';
     }
 
 }
 
-let typeOutput = isJavaScriptFile(false)
-console.log(typeOutput);
+// const typeOutput = isJavaScriptFile('.js')
+
+
+
+
+
+
+
+//--------------------------------
+//Problem 3: oilPrice
+//-----------------------
+
+function oilPrice(diesel, Petrol, octane) {
+    if(typeof(diesel) == 'number' && typeof(Petrol) == 'number' && typeof(octane) == 'number' && diesel >= 0 && Petrol >= 0 && octane >= 0) {
+        const dieselRate = 114;
+        const petrolRate = 130;
+        const octaneRate = 135;
+
+        let dieselPrice = diesel * dieselRate;
+        let petrolPrice = Petrol * petrolRate;
+        let octanePrice = octane * octaneRate;
+
+        let totalOilPrice = dieselPrice + petrolPrice + octanePrice;
+        return totalOilPrice;
+
+    }
+    else{
+        return 'Please valid number'
+    }
+
+}
+
+// const oilResult = oilPrice(1, 1, 1);
+
+
+
+
+
+//--------------------------------
+//Problem 4: publicBusFare
+//-----------------------
+
+
+function publicBusFare(passenger) {
+    
+    if(typeof(passenger) === 'number' && passenger >= 0){
+        const bus = 50;
+        const micro = 11;
+
+        let afterBus = passenger % bus;
+        let afterMicro = afterBus % micro;
+
+        let localBusCost = afterMicro * 250;
+        return localBusCost;
+    }
+    else{
+        return 'please valid passenger number'
+    }
+
+}
+
+// const totalCost = publicBusFare(1);
+
+
+
+
+
+//--------------------------------
+//Problem 5: isBestFriend
+//-----------------------
+
+
+function isBestFriend(friends1, friends2) {
+    
+    if(typeof(friends1) === 'object' && typeof(friends2) === 'object') {
+        if (friends1.name.toLowerCase() === friends2.friend.toLowerCase() && friends2.name.toLowerCase() === friends1.friend.toLowerCase()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    else{
+        return 'please  valid object friends data';
+    }
+
+}
+
+
+// let friends1 = { name: 'abul', friend: 'babul' }
+// let friends2 = { name: 'babul', friend: 'abul' }
+
+
+// const myBestFriend = isBestFriend(friends1, friends2);
+
 
 
